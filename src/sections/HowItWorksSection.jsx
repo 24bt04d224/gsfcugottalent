@@ -33,10 +33,8 @@ const CARDS_DATA = [
     stepNumber: "03",
     phaseLabel: "STAGE PHASE 03",
     title: "GRAND SHOWCASE",
-    subtitle: EVENT_DETAILS.isFinaleRevealed ? "29 OCTOBER 2026" : "REVEALING 22 OCTOBER",
-    description: EVENT_DETAILS.isFinaleRevealed
-      ? "Shortlisted finalists will take center stage at Aanganva, GSFC University on Thursday, 29 October 2026 before a live audience and celebrity judges."
-      : "Shortlisted finalists will take center stage before a live audience and celebrity judges at Aanganva, GSFC University. Grand Showcase finale date will be officially revealed on Thursday, 22 October 2026 during auditions.",
+    subtitle: "DATE REVEALING AT AUDITIONS",
+    description: "Shortlisted finalists will take center stage before a live audience and celebrity judges at Aanganva, GSFC University. Grand Showcase finale date will be officially revealed on Thursday, 22 October 2026 during auditions.",
     ctaText: "THE FINAL STAGE",
     ctaLink: null,
     image: showcaseImg,

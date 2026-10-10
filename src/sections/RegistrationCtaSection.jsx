@@ -78,20 +78,9 @@ export default function RegistrationCtaSection() {
         <div className="w-full max-w-3xl mx-auto px-2">
           <div className="pt-5 border-t border-[#E86F2D]/20 flex flex-wrap items-center justify-center gap-y-3 gap-x-5 sm:gap-x-7 text-xs sm:text-sm font-mono">
             
-            {/* Date */}
+            {/* Auditions Date */}
             <div className="flex items-center gap-2">
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E86F2D] shrink-0" />
-              <span className="font-bold text-[#F4E7D0] tracking-wider uppercase">
-                29 OCTOBER 2026
-              </span>
-            </div>
-
-            {/* Divider */}
-            <span className="hidden sm:inline text-[#E86F2D]/40 font-sans">|</span>
-
-            {/* Auditions */}
-            <div className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E86F2D] shrink-0" />
               <div className="flex items-baseline gap-1.5">
                 <span className="text-[10px] sm:text-xs text-[#E86F2D] tracking-widest uppercase font-semibold">
                   AUDITIONS:

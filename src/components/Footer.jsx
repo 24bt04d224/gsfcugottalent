@@ -58,11 +58,7 @@ export default function Footer() {
                 <Calendar className="w-4 h-4 text-[#E86F2D] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-[#F1E8D8] font-medium block">Auditions: Thursday, 22 October 2026</span>
-                  {EVENT_DETAILS.isFinaleRevealed ? (
-                    <span className="text-[#A69E90] text-[11px] block mt-0.5">Grand Showcase: Thursday, 29 October 2026</span>
-                  ) : (
-                    <span className="text-[#D59A28] text-[11px] font-mono block mt-0.5">Grand Showcase: Revealing 22 Oct</span>
-                  )}
+                  <span className="text-[#A69E90] text-[11px] block mt-0.5">Grand Showcase: Revealing 22 Oct</span>
                 </div>
               </li>
               

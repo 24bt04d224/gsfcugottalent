@@ -401,9 +401,7 @@ export default function RegisterPage() {
               OFFICIAL <span className="text-[#C96B35]">REGISTRATION</span>
             </h1>
             <p className="font-hand text-xl xs:text-2xl text-[#C49A3A]">
-              {EVENT_DETAILS.isFinaleRevealed
-                ? '"Take The Stage — 29 October 2026"'
-                : '"Take The Stage — Auditions: 22 October 2026"'}
+              "Take The Stage — Auditions: 22 October 2026"
             </p>
           </div>
 

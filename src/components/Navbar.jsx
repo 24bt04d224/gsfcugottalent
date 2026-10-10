@@ -98,7 +98,7 @@ export default function Navbar() {
             </span>
           </div>
           <span className="text-[9px] font-mono tracking-widest text-[#C9C5BD]/70 uppercase mt-1">
-            29 OCT 2026 • GSFC UNIVERSITY
+            22 OCT 2026 • AUDITIONS • GSFC UNIVERSITY
           </span>
         </Link>
 

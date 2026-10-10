@@ -6,7 +6,7 @@ export default function EventInfoStrip() {
   const items = [
     { icon: Calendar, text: `AUDITIONS: ${EVENT_DETAILS.auditionDate}`, highlight: true },
     { icon: MapPin, text: "AANGANVA, GSFC UNIVERSITY" },
-    { icon: Radio, text: EVENT_DETAILS.isFinaleRevealed ? "GRAND SHOWCASE: 29 OCT" : "SHOWCASE: REVEALING 22 OCT" },
+    { icon: Radio, text: "AUDITIONS: 22 OCT 2026" },
     { icon: Sparkles, text: "2026 EDITION", highlight: true },
   ];
 
