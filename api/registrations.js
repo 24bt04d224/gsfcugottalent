@@ -1,4 +1,4 @@
-import { connectToDatabase, setCors, sendJson, getRequestBody } from './_lib/mongodb.js';
+import { connectToDatabase, setCors, sendJson, getRequestBody, formatMongoError } from './_lib/mongodb.js';
 
 export default async function handler(req, res) {
   setCors(res);
@@ -77,6 +77,6 @@ export default async function handler(req, res) {
     return sendJson(res, 405, { success: false, error: 'Method not allowed' });
   } catch (err) {
     console.error('[API registrations] Error:', err);
-    return sendJson(res, 500, { success: false, error: err.message });
+    return sendJson(res, 500, { success: false, error: formatMongoError(err) });
   }
 }

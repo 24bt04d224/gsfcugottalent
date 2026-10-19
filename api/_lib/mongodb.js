@@ -22,20 +22,37 @@ export async function connectToDatabase() {
     return { client: cachedClient, db: cachedDb };
   }
 
-  // Use global connection caching across serverless invocations
-  if (!global._mongoClientPromise) {
-    const client = new MongoClient(uri, {
-      maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5000,
-      connectTimeoutMS: 10000,
-    });
-    global._mongoClientPromise = client.connect();
+  try {
+    // Use global connection caching across serverless invocations
+    if (!global._mongoClientPromise) {
+      const client = new MongoClient(uri, {
+        maxPoolSize: 10,
+        serverSelectionTimeoutMS: 5000,
+        connectTimeoutMS: 10000,
+      });
+      global._mongoClientPromise = client.connect();
+    }
+
+    cachedClient = await global._mongoClientPromise;
+    cachedDb = cachedClient.db(dbName);
+
+    return { client: cachedClient, db: cachedDb };
+  } catch (err) {
+    // Reset cache on error so subsequent requests can retry instead of reusing a rejected promise
+    global._mongoClientPromise = null;
+    cachedClient = null;
+    cachedDb = null;
+    throw err;
   }
+}
 
-  cachedClient = await global._mongoClientPromise;
-  cachedDb = cachedClient.db(dbName);
-
-  return { client: cachedClient, db: cachedDb };
+export function formatMongoError(err) {
+  if (!err) return 'Unknown database error';
+  const msg = err.message || String(err);
+  if (msg.includes('SSL alert number 80') || msg.includes('tlsv1 alert internal error') || msg.includes('ECONNREFUSED')) {
+    return 'MongoDB Atlas Network Access Blocked: Vercel serverless dynamic IPs are not permitted by your MongoDB Atlas IP Access List. Please add 0.0.0.0/0 (Allow Access from Anywhere) in MongoDB Atlas -> Network Access.';
+  }
+  return msg;
 }
 
 export function setCors(res) {

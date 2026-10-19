@@ -1,4 +1,4 @@
-import { connectToDatabase, setCors, sendJson } from './_lib/mongodb.js';
+import { connectToDatabase, setCors, sendJson, formatMongoError } from './_lib/mongodb.js';
 
 export default async function handler(req, res) {
   setCors(res);
@@ -34,8 +34,10 @@ export default async function handler(req, res) {
       status: 'error',
       service: 'GSFCU Got Talent Vercel Serverless API',
       database: 'MongoDB Atlas',
-      error: err.message,
+      error: formatMongoError(err),
+      rawError: err.message,
       timestamp: new Date().toISOString()
     });
   }
 }
+
