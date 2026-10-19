@@ -20,7 +20,6 @@ import {
   exportRegistrationsCSV,
   exportRegistrationsJSON,
   isBackendConfigured,
-  getBackendUrl,
   generateWhatsAppLink,
   getSponsors,
   fetchSponsorsFromCloud,
@@ -609,9 +608,7 @@ export default function AdminPage() {
                 <Database className="w-3 h-3" />
                 <span>
                   {isBackendConfigured()
-                    ? (getBackendUrl().includes('54.234.188.13') || getBackendUrl().includes('amazonaws.com')
-                        ? 'AWS EC2 BACKEND ACTIVE'
-                        : 'CLOUD BACKEND ACTIVE')
+                    ? 'MONGODB ATLAS ACTIVE'
                     : isFirebaseConfigured()
                     ? 'FIRESTORE CLOUD ACTIVE'
                     : isSupabaseConfigured()
@@ -619,6 +616,7 @@ export default function AdminPage() {
                     : 'LOCAL ENGINE READY'}
                 </span>
               </div>
+
             </div>
 
             <p className="text-xs text-[#C9C5BD] font-sans mt-1">
